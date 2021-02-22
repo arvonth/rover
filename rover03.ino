@@ -22,6 +22,7 @@ void setup()
   //Setup communications
   Serial.begin(57600);
   delay(250);
+  help();
   Serial.write("\r\n>");
 }
  
@@ -85,13 +86,27 @@ void loop()
         Serial.write("\r\nSPEED SET: 255\r\n>");
         break;
  
-      case 'p':
-      case 'P':
-        Serial.write("\r\nRUNT ROVER 03\r\n>");
+      case 'h':
+      case 'H':
+        help();
         break;
         
       default:
+        Serial.write("\r\nUnknown Command press h for help\r\n>");
         break;
     }
   }
+}
+
+void help()
+{
+  Serial.write("\r\nRUNT ROVER 03\r\n");
+  Serial.write("--------------------------");
+  Serial.write("\r\nF - Forward");
+  Serial.write("\r\nB - Back");
+  Serial.write("\r\nR - Right");
+  Serial.write("\r\nL - Left");
+  Serial.write("\r\nv - Change Speed to 127");
+  Serial.write("\r\nV - Change Speed to 255");  
+  Serial.write("\r\n>");
 }
