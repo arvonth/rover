@@ -10,6 +10,7 @@
 //Variable
 String inputString = "";         // a string to hold incoming data
 boolean stringComplete = false;  // whether the string is complete
+unsigned char set_speed = 127;
 
 void setup()
 {
@@ -41,6 +42,8 @@ void loop()
       case 'f':
       case 'F':
         motordriver.stop();
+        motordriver.setSpeed(set_speed,MOTORB);
+        motordriver.setSpeed(set_speed,MOTORA);
         delay(100);
         motordriver.goForward();
         Serial.write("\r\nFORWARD\r\n>");
@@ -49,6 +52,8 @@ void loop()
       case 'b':
       case 'B':
         motordriver.stop();
+        motordriver.setSpeed(set_speed,MOTORB);
+        motordriver.setSpeed(set_speed,MOTORA);
         delay(100);
         motordriver.goBackward();
         Serial.write("\r\nBACKWARD\r\n>");
@@ -75,14 +80,16 @@ void loop()
         break;
         
        case 'v':
-        motordriver.setSpeed(127,MOTORB);
-        motordriver.setSpeed(127,MOTORA);
+        set_speed = 127;
+        motordriver.setSpeed(set_speed,MOTORB);
+        motordriver.setSpeed(set_speed,MOTORA);
         Serial.write("\r\nSPEED SET: 127\r\n>");
         break;
         
       case 'V':
-        motordriver.setSpeed(255,MOTORB);
-        motordriver.setSpeed(255,MOTORA);
+        set_speed = 255;
+        motordriver.setSpeed(set_speed,MOTORB);
+        motordriver.setSpeed(set_speed,MOTORA);
         Serial.write("\r\nSPEED SET: 255\r\n>");
         break;
  
