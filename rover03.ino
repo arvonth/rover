@@ -113,6 +113,7 @@ void help()
   Serial.write("\r\nB - Back");
   Serial.write("\r\nR - Right");
   Serial.write("\r\nL - Left");
+  Serial.write("\r\nS - Stop");
   Serial.write("\r\nv - Change Speed to 127");
   Serial.write("\r\nV - Change Speed to 255");  
   Serial.write("\r\n>");
