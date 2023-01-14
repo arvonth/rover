@@ -59,6 +59,50 @@ void loop()
         Serial.write("\r\nBACKWARD\r\n>");
         break;
         
+      case 'q':
+      case 'Q':
+        //Veer Forward Left
+        motordriver.stop();
+        motordriver.setSpeed(200,MOTORB);
+        motordriver.setSpeed(100,MOTORA);
+        delay(100);
+        motordriver.goForward();
+        Serial.write("\r\nVEER FORWARD LEFTr\n>");
+        break;
+        
+      case 'e':
+      case 'E':
+        //Veer Forward Right
+        motordriver.stop();
+        motordriver.setSpeed(100,MOTORB);
+        motordriver.setSpeed(200,MOTORA);
+        delay(100);
+        motordriver.goForward();
+        Serial.write("\r\nVEER FORWARD RIGHT\n>");
+        break;
+        
+      case 'z':
+      case 'Z':
+        //Veer Back Left
+        motordriver.stop();
+        motordriver.setSpeed(200,MOTORB);
+        motordriver.setSpeed(100,MOTORA);
+        delay(100);
+        motordriver.goBackward();
+        Serial.write("\r\nVEER BACK LEFTr\n>");
+        break;
+        
+      case 'c':
+      case 'C':
+        //Veer Back Right
+        motordriver.stop();
+        motordriver.setSpeed(100,MOTORB);
+        motordriver.setSpeed(200,MOTORA);
+        delay(100);
+        motordriver.goBackward();
+        Serial.write("\r\nVEER BACK RIGHT\n>");
+        break;
+        
       case 'r':
       case 'R':
         motordriver.stop();
@@ -110,9 +154,13 @@ void help()
   Serial.write("\r\nRUNT ROVER 03\r\n");
   Serial.write("--------------------------");
   Serial.write("\r\nF - Forward");
+  Serial.write("\r\nQ - Veer Forward Left");
+  Serial.write("\r\nE - Veer Forward Right");
   Serial.write("\r\nB - Back");
-  Serial.write("\r\nR - Right");
-  Serial.write("\r\nL - Left");
+  Serial.write("\r\nZ - Veer Back Left");
+  Serial.write("\r\nC - Veer Back Right");
+  Serial.write("\r\nR - Spin Right");
+  Serial.write("\r\nE - Spin Right");
   Serial.write("\r\nS - Stop");
   Serial.write("\r\nv - Change Speed to 127");
   Serial.write("\r\nV - Change Speed to 255");  
